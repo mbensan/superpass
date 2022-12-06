@@ -16,24 +16,24 @@
   </style>
 </head>
 <body>
-  <!-- navigator allow us to navigate between pages, making a Stack of pages piled one on top of another-->
-  <ons-navigator id="nav">
-    <ons-page>
-      <header>
-        <p>
-          <ons-input id="username" placeholder="Username" modifier="underbar"></ons-input>
-        </p>
-        <p>
-          <ons-input id="password" placeholder="Password" type="password" modifier="underbar"></ons-input>
-        </p>
-        <p>
-          <ons-button onclick="login()">Sign In</ons-button>
-        </p>
-  
-      </header>
-    </ons-page>
-  </ons-navigator>
-  <!-- Oher pages-->
+  <ons-splitter>
+    <!-- The side menu -->
+    <ons-splitter-side id="menu" collapse width="220px">
+      <ons-page>
+        <ons-list>
+          <ons-list-item onclick="loadPage('about.html')">
+            About
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    
+    <!-- Everything not in the side menu -->
+    <ons-splitter-content>
+      <!-- navigator allow us to navigate between pages, making a Stack of pages piled one on top of another-->
+      <ons-navigator id="nav" page="pages/login.html"></ons-navigator>
+    </ons-splitter-content>
+  </ons-splitter>
   <script src="app.js"></script>
 </body>
 </html>

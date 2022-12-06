@@ -1,0 +1,50 @@
+<ons-page id="pokemon">
+
+  <ons-list id="pokemon-list">
+    <ons-list-item expandable>
+      bulbasaur
+      <div class="expandable-content">
+        <ons-button onclick="savePokemon(1, this)">Save</ons-button>
+      </div>
+    </ons-list-item>
+
+    <ons-list-item expandable>
+      charmander
+      <div class="expandable-content">
+        <ons-button onclick="savePokemon(4, this)">Save</ons-button>
+      </div>
+    </ons-list-item>
+
+    <ons-list-item expandable>
+      squirtle
+      <div class="expandable-content">
+        <ons-button onclick="savePokemon(7, this)">Save</ons-button>
+      </div>
+    </ons-list-item>
+
+    <ons-list-item expandable>
+      pikachu
+      <div class="expandable-content">
+        <ons-button onclick="savePokemon(25, this)">Save</ons-button>
+      </div>
+    </ons-list-item>
+
+    <ons-list-item expandable>
+      Willy
+      <div class="expandable-content">
+        <ons-button onclick="savePokemon(78, this)">Save</ons-button>
+      </div>
+    </ons-list-item>
+  </ons-list>
+  
+  <script>
+    const pokemons = []
+
+    function savePokemon(number, button) {
+      pokemons.push(number)
+      button.parentNode.parentNode.hideExpansion()
+      addPokemonToGrid(number)
+    }
+  </script>
+
+</ons-page>

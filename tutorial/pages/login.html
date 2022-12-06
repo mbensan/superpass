@@ -1,0 +1,29 @@
+<ons-page>
+  <header>
+    <p>
+      <ons-input id="username" placeholder="Username" modifier="underbar"></ons-input>
+    </p>
+    <p>
+      <ons-input id="password" placeholder="Password" type="password" modifier="underbar"></ons-input>
+    </p>
+    <p>
+      <ons-button onclick="login()">Sign In</ons-button>
+    </p>
+
+  </header>
+
+  <script>
+
+    const usernameInput = document.querySelector('#username');
+    const passwordInput = document.querySelector('#password');
+    
+    (function quickInit() {
+      //nav.resetToPage('pages/home.html')
+      usernameInput.value = 'user'
+      passwordInput.value = 'pass'
+      setTimeout(() => 
+        document.querySelector('ons-button').click()
+      , 100)
+    })()
+  </script>
+</ons-page>

@@ -1,0 +1,36 @@
+<ons-page id="home">
+  <ons-toolbar id="home-toolbar">
+
+    <div class="left">
+      <ons-toolbar-button onclick="openMenu()">
+        <ons-icon icon="md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+
+    <div class="center">
+      <span id="tab-name">Home</span>
+      <ons-icon icon="fa-spinner" spin></ons-icon>
+    </div>
+
+    <div class="right">
+      Right
+    </div>
+  </ons-toolbar>
+
+
+  <ons-tabbar id="tabbar">
+    <ons-tab page="pages/pokemon.html" icon="smile" label="Pokémon"></ons-tab>
+    <ons-tab page="pages/saved.html" icon="eject" label="Saved"></ons-tab>
+  </ons-tabbar>
+
+  <script>
+    // triggered when tab changes, changes the tab's title
+    document.addEventListener('prechange', ({ target, tabItem }) => {
+      if (target.matches('#tabbar')) {
+        document.querySelector('#home-toolbar .center #tab-name').innerHTML = tabItem.getAttribute('label');
+  }
+    });
+
+
+  </script>
+</ons-page>

@@ -1,0 +1,36 @@
+<ons-page id="saved">
+
+  <style>
+    #grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-rows: 33vw;
+    }
+
+    #grid img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+  <div id="content">
+    <div id="grid"></div>
+  </div>
+
+  <script>
+    function addPokemonToGrid(number) {
+      const grid = document.querySelector('#grid')
+      const cell = document.createElement('div')
+      cell.addEventListener('click', () => {
+        console.log('Click!');
+      })
+
+      const image = document.createElement('img')
+      image.setAttribute('src', `assets/sprites-master/sprites/pokemon/${number}.png`)
+
+      cell.appendChild(image)
+      grid.appendChild(cell)
+    }
+  </script>
+
+</ons-page>
