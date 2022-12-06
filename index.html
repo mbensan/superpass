@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Superpass</title>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <style>
+    header {
+      text-align: center;
+      margin-top: 200px;
+    }
+  </style>
+</head>
+<body>
+  <!-- navigator allow us to navigate between pages, making a Stack of pages piled one on top of another-->
+  <ons-navigator id="nav">
+    <ons-page>
+      <header>
+        <p>
+          <ons-input id="username" placeholder="Username" modifier="underbar"></ons-input>
+        </p>
+        <p>
+          <ons-input id="password" placeholder="Password" type="password" modifier="underbar"></ons-input>
+        </p>
+        <p>
+          <ons-button onclick="login()">Sign In</ons-button>
+        </p>
+  
+      </header>
+    </ons-page>
+  </ons-navigator>
+  <!-- Oher pages-->
+  <script src="app.js"></script>
+</body>
+</html>
