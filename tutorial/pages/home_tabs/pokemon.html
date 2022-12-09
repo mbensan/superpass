@@ -1,0 +1,51 @@
+<ons-page id="pokemon">
+
+  <ons-list id="pokemon-list">
+    <!--
+    <ons-list-item expandable>
+      bulbasaur
+      <div class="expandable-content">
+        <ons-button onclick="savePokemon(1, this)">Save</ons-button>
+      </div>
+    </ons-list-item>
+    -->
+  </ons-list>
+  
+  <script>
+    const pokemons = []
+
+    function savePokemon(number, button) {
+      pokemons.push(number)
+      button.parentNode.parentNode.hideExpansion()
+      addPokemonToGrid(number)
+    }
+
+    let nextPokenumber = 1; // para llevar la cuenta de cuantos pokemones llevamos
+    let url = 'https://pokeapi.co/api/v2/pokemon'
+
+    const get = async () => {
+      const response = await fetch(url)
+      const data = await response.json()
+
+      const pokemon_list = document.querySelector('#pokemon-list')
+
+      data.results.forEach(function(pokemon) {
+        const listItem = ons.createElement(`
+        <ons-list-item expandable>
+          ${nextPokenumber} ${pokemon.name}
+          <div class="expandable-content">
+            <ons-button onclick="savePokemon(${nextPokenumber}, this)">Save</ons-button>
+          </div>
+        </ons-list-item>
+        `)
+        pokemon_list.appendChild(listItem)
+        nextPokenumber++
+      })
+
+      url = data.next
+      
+    }
+    get()
+  </script>
+
+</ons-page>

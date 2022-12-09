@@ -1,0 +1,72 @@
+<ons-page id="gallery">
+  <style>
+    .gallery-image {
+      width: 80%;
+      left: 10%;
+    }
+    /* Larger than tablet */
+    @media (min-width: 750px) {
+      #carousel {
+        width: 60%;
+        left: 20%;
+        position: relative;
+      }
+      
+    }
+  </style>
+
+  <script>
+  </script>
+
+  <ons-toolbar id="picture-toolbar">
+    <div class="left">
+      <ons-back-button></ons-back-button>
+    </div>
+
+    <div class="center">
+      <span id="tab-name">Gallery</span>
+    </div>
+  </ons-toolbar>
+
+  <ons-carousel id="carousel" fullscreen swipeable auto-scroll auto-scroll-ratio="0.1">
+  </ons-carousel>
+
+  <script>
+    document.addEventListener('show', function ({target}) {
+      // sólo cuando se muestre el carrousel
+      if (target.id == 'gallery') {
+
+        const { number, pokemons } = nav.topPage.data;
+        addToCarousel(number, pokemons)
+      }
+    })
+    
+    function addToCarousel(number, pokemons) {
+      const carousel = document.querySelector('#carousel')
+
+      // figure out what new pokemon have been saved since we last showed the gallery
+      // this way we don't accidentally add the same pokemon twice
+      const sliceIndex = carousel.itemCount - pokemons.length;
+
+      if (sliceIndex == 0) {
+        return;
+      }
+
+      const unaddedPokemon = pokemons.slice(sliceIndex)
+      
+      unaddedPokemon.map(pokenumber => {
+        const carouselItem = ons.createElement(`
+          <ons-carousel-item>
+            <ons-card>
+              <img class="gallery-image" src="assets/img/${pokenumber}.png" />
+            </ons-card>
+          </ons-carousel-item>
+        `)
+        carousel.appendChild(carouselItem)
+      })
+
+      // go to the selected pokemon
+      carousel.setActiveIndex(pokemons.indexOf(number));
+    }
+  </script>
+</ons-page>

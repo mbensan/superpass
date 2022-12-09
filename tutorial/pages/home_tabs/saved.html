@@ -21,15 +21,20 @@
     function addPokemonToGrid(number) {
       const grid = document.querySelector('#grid')
       const cell = document.createElement('div')
+      
       cell.addEventListener('click', () => {
         console.log('Click!');
       })
 
       const image = document.createElement('img')
-      image.setAttribute('src', `assets/sprites-master/sprites/pokemon/${number}.png`)
+      image.setAttribute('src', `assets/img/${number}.png`)
 
       cell.appendChild(image)
       grid.appendChild(cell)
+
+      cell.addEventListener('click', function() {
+        nav.bringPageTop('pages/gallery.html', {data: {number, pokemons} })
+      })
     }
   </script>
 

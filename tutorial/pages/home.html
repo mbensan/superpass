@@ -19,8 +19,8 @@
 
 
   <ons-tabbar id="tabbar">
-    <ons-tab page="pages/pokemon.html" icon="smile" label="Pokémon"></ons-tab>
-    <ons-tab page="pages/saved.html" icon="eject" label="Saved"></ons-tab>
+    <ons-tab page="pages/home_tabs/pokemon.html" icon="smile" label="Pokémon"></ons-tab>
+    <ons-tab page="pages/home_tabs/saved.html" icon="eject" label="Saved"></ons-tab>
   </ons-tabbar>
 
   <script>
@@ -28,7 +28,7 @@
     document.addEventListener('prechange', ({ target, tabItem }) => {
       if (target.matches('#tabbar')) {
         document.querySelector('#home-toolbar .center #tab-name').innerHTML = tabItem.getAttribute('label');
-  }
+      }
     });
 
 
